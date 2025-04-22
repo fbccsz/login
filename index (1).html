@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+    <title>Login</title>
+      <style>
+          body {
+                font-family: Arial, sans-serif;
+                      background-color: white;
+                            color: black;
+                                  transition: background-color 0.3s, color 0.3s;
+                                      }
+
+                                          .dark-mode {
+                                                background-color: #121212;
+                                                      color: white;
+                                                          }
+
+                                                              input, button {
+                                                                    padding: 8px;
+                                                                          margin: 5px 0;
+                                                                        
+                                                                                        
+                                                                                            }
+
+                                                                                                .modo-btn {
+                                                                                                      margin-bottom: 20px;
+                                                                                                            padding: 10px 20px;
+                                                                                                                  cursor: pointer;
+                                                                                                                      }
+
+                                                                                                                          /* Estilização para inputs no modo escuro */
+                                                                                                                              .dark-mode input {
+                                                                                                                                    background-color: #333;
+                                                                                                                                          color: white;
+                                                                                                                                                border: 1px solid #555;
+                                                                                                                                                    }
+
+                                                                                                                                                        .dark-mode button,
+                                                                                                                                                            .dark-mode input[type="submit"] {
+                                                                                                                                                                  background-color: #444;
+                                                                                                                                                                        color: white;
+                                                                                                                                                                              border: 1px solid #666;
+                                                                                                                                                                                  }
+                                                                                                                                                                                    body{
+                                                                                                                                                                                        text-align: center;
+                                                                                                                                                                                          }
+                                                                                                                                                                                            </style>
+                                                                                                                                                                                            </head>
+                                                                                                                                                                                            <body>
+                                                                                                                                                                                              <button class="modo-btn" onclick="toggleModoEscuro()" id="btnModo">Ativar Modo Escuro</button>
+
+                                                                                                                                                                                                <h2>Login</h2>
+                                                                                                                                                                                                  <form onsubmit="return verificarLogin()">
+                                                                                                                                                                                                      <label for="email">Email: </label>
+                                                                                                                                                                                                          <input type="email" id="email" required><br>
+
+                                                                                                                                                                                                              <label for="senha">Senha: </label>
+                                                                                                                                                                                                                  <input type="password" id="senha" required><br><br>
+
+                                                                                                                                                                                                                      <input type="submit" value="Entrar">
+                                                                                                                                                                                                                        </form>
+
+                                                                                                                                                                                                                          <p id="mensagem"></p>
+
+                                                                                                                                                                                                                            <script>
+                                                                                                                                                                                                                                const emailsRegistrados = [
+                                                                                                                                                                                                                                      "usuario1@example.com",
+                                                                                                                                                                                                                                            "teste@example.com",
+                                                                                                                                                                                                                                                  "email@email.com"
+                                                                                                                                                                                                                                                      ];
+
+                                                                                                                                                                                                                                                          function verificarLogin() {
+                                                                                                                                                                                                                                                                const email = document.getElementById("email").value;
+                                                                                                                                                                                                                                                                      const senha = document.getElementById("senha").value;
+                                                                                                                                                                                                                                                                            const mensagem = document.getElementById("mensagem");
+
+                                                                                                                                                                                                                                                                                  if (emailsRegistrados.includes(email)) {
+                                                                                                                                                                                                                                                                                          mensagem.textContent = "Login realizado com sucesso!";
+                                                                                                                                                                                                                                                                                                  mensagem.style.color = "green";
+                                                                                                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                                                                                                                mensagem.textContent = "Email não registrado.";
+                                                                                                                                                                                                                                                                                                                        mensagem.style.color = "red";
+                                                                                                                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                                                                                                                                    return false;
+                                                                                                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                                                                                                            function toggleModoEscuro() {
+                                                                                                                                                                                                                                                                                                                                                  const body = document.body;
+                                                                                                                                                                                                                                                                                                                                                        const btn = document.getElementById("btnModo");
+                                                                                                                                                                                                                                                                                                                                                              body.classList.toggle("dark-mode");
+
+                                                                                                                                                                                                                                                                                                                                                                    if (body.classList.contains("dark-mode")) {
+                                                                                                                                                                                                                                                                                                                                                                            btn.textContent = "Desativar Modo Escuro";
+                                                                                                                                                                                                                                                                                                                                                                                  } else {
+                                                                                                                                                                                                                                                                                                                                                                                          btn.textContent = "Ativar Modo Escuro";
+                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                      </script>
+                                                                                                                                                                                                                                                                                                                                                                                                      </body>
+                                                                                                                                                                                                                                                                                                                                                                                                      </html>
+                                                                                                                                                                                                                                                                                                                                                                                                      
